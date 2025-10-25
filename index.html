@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mi Página — Negocio/Portafolio</title>
+  <meta name="description" content="Página web sencilla, rápida y responsive para presentar tu negocio o portafolio." />
+  <meta name="robots" content="index, follow" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mi Página — Negocio/Portafolio" />
+  <meta property="og:description" content="Presenta tu marca con una web moderna y gratuita." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://picsum.photos/1200/630" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%230ea5e9'/><text x='50' y='58' font-size='46' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'>M</text></svg>">
+  <style>
+    :root{
+      --bg:#0b1220; --card:#0e1726; --text:#e6eefc; --muted:#9cb3d8; --brand:#0ea5e9; --brand-2:#22d3ee; --ring:#60a5fa;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;background:linear-gradient(180deg,var(--bg),#0a0f1a);color:var(--text);line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;backdrop-filter:saturate(1.1) blur(10px);background:rgba(11,18,32,.7);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+    nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;align-items:center;gap:.6rem;font-weight:700}
+    .logo-badge{width:32px;height:32px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;box-shadow:var(--shadow)}
+    .logo-badge span{font-size:18px;color:white}
+    .nav-links{display:flex;gap:1rem}
+    .nav-links a{padding:.4rem .7rem;border-radius:10px}
+    .nav-links a:hover{background:rgba(255,255,255,.06)}
+
+    .hero{padding:72px 0 48px;display:grid;grid-template-columns:1.2fr 1fr;gap:32px;align-items:center}
+    .hero h1{font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0}
+    .hero p{color:var(--muted);font-size:18px}
+    .hero .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn{appearance:none;border:0;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:white;padding:12px 18px;border-radius:14px;font-weight:700;cursor:pointer;box-shadow:var(--shadow)}
+    .btn.outline{background:transparent;border:1px solid rgba(255,255,255,.15);color:var(--text)}
+    .card{background:linear-gradient(180deg,var(--card),#0b1324);border:1px solid rgba(255,255,255,.06);border-radius:18px;box-shadow:var(--shadow)}
+    .hero .preview{aspect-ratio:4/3;overflow:hidden;position:relative}
+    .hero .preview img{width:100%;height:100%;object-fit:cover;filter:saturate(1.1)}
+
+    section{padding:56px 0}
+    h2{font-size:clamp(24px,3vw,36px);margin:0 0 18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feature{padding:20px}
+    .feature h3{margin:8px 0 6px}
+    .muted{color:var(--muted)}
+
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+    .about img{width:100%;border-radius:16px;border:1px solid rgba(255,255,255,.08)}
+
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .gallery img{width:100%;height:220px;object-fit:cover;border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .price{padding:22px}
+    .price h3{margin:0}
+    .price .amount{font-size:28px;font-weight:800;margin:8px 0}
+
+    .contact{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+    form{display:grid;gap:10px}
+    input, textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0c1526;color:var(--text)}
+    input:focus,textarea:focus{outline:2px solid var(--ring)}
+    .foot{display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.08);margin-top:24px;color:var(--muted)}
+
+    /* Mobile */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .about{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .grid-3, .pricing, .gallery{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#inicio" class="logo" aria-label="Ir al inicio">
+          <span class="logo-badge"><span>MV</span></span>
+          <span>Mi&nbsp;Marca</span>
+        </a>
+        <div class="nav-links" role="navigation" aria-label="Secciones del sitio">
+          <a href="#servicios">Servicios</a>
+          <a href="#portafolio">Portafolio</a>
+          <a href="#precios">Precios</a>
+          <a href="#contacto" class="btn" style="padding:8px 14px">Contacto</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1>Impulsa tu marca con una web moderna ✨</h1>
+        <p>Plantilla gratuita, rápida y responsive. Edita textos, colores e imágenes en minutos. Ideal para negocios locales, freelancers y portafolios.</p>
+        <div class="cta">
+          <a href="#contacto" class="btn">Pide una cotización</a>
+          <a href="#servicios" class="btn outline">Ver servicios</a>
+        </div>
+        <ul class="muted" style="margin-top:14px; padding-left:18px">
+          <li>Carga rápida y SEO básico</li>
+          <li>Diseño adaptable a celular</li>
+          <li>Sin dependencias ni servidores</li>
+        </ul>
+      </div>
+      <div class="card preview" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1400&auto=format&fit=crop" alt="Gente trabajando frente a laptops"/>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios">
+      <h2>Servicios</h2>
+      <p class="muted">Cuéntale al mundo lo que ofreces. Cambia estos textos por los de tu negocio.</p>
+      <div class="grid-3">
+        <article class="card feature">
+          <h3>Diseño web</h3>
+          <p>Landing pages, portafolios y micrositios rápidos, accesibles y fáciles de mantener.</p>
+        </article>
+        <article class="card feature">
+          <h3>Branding</h3>
+          <p>Colores, tipografías y estilo visual coherente para transmitir confianza.</p>
+        </article>
+        <article class="card feature">
+          <h3>Marketing</h3>
+          <p>Optimización SEO y buenas prácticas para aparecer en Google.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SOBRE MI / NOSOTROS -->
+    <section id="sobre-mi" class="about">
+      <div>
+        <h2>Sobre mí / nosotros</h2>
+        <p>Soy <strong>Tu Nombre</strong>, especialista en <em>lo que haces</em>. He ayudado a clientes a mejorar su presencia digital con soluciones simples y efectivas.</p>
+        <p class="muted">Reemplaza este texto con tu historia, tu propuesta de valor y por qué los clientes te eligen.</p>
+      </div>
+      <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=1400&auto=format&fit=crop" alt="Equipo creativo trabajando"/>
+    </section>
+
+    <!-- PORTAFOLIO / GALERÍA -->
+    <section id="portafolio">
+      <h2>Portafolio</h2>
+      <p class="muted">Muestra tus proyectos destacados o productos.</p>
+      <div class="gallery">
+        <img src="https://picsum.photos/id/14/800/600" alt="Proyecto 1"/>
+        <img src="https://picsum.photos/id/1080/800/600" alt="Proyecto 2"/>
+        <img src="https://picsum.photos/id/1003/800/600" alt="Proyecto 3"/>
+      </div>
+    </section>
+
+    <!-- PLANES / PRECIOS -->
+    <section id="precios">
+      <h2>Precios</h2>
+      <div class="pricing">
+        <article class="card price">
+          <h3>Starter</h3>
+          <p class="muted">Ideal para comenzar</p>
+          <div class="amount">$0</div>
+          <ul class="muted">
+            <li>1 sección</li>
+            <li>Edición básica</li>
+            <li>Soporte por email</li>
+          </ul>
+          <a class="btn" href="#contacto">Elegir</a>
+        </article>
+        <article class="card price" style="border-color:rgba(34,211,238,.5)">
+          <h3>Pro</h3>
+          <p class="muted">Lo más popular</p>
+          <div class="amount">$49</div>
+          <ul class="muted">
+            <li>Hasta 5 secciones</li>
+            <li>Optimización SEO</li>
+            <li>Integración formulario</li>
+          </ul>
+          <a class="btn" href="#contacto">Elegir</a>
+        </article>
+        <article class="card price">
+          <h3>Empresarial</h3>
+          <p class="muted">A la medida</p>
+          <div class="amount">$199</div>
+          <ul class="muted">
+            <li>Secciones ilimitadas</li>
+            <li>Blog y analítica</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a class="btn" href="#contacto">Elegir</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact">
+      <div>
+        <h2>Contacto</h2>
+        <p class="muted">¿Listo para empezar? Escríbeme y te respondo a la brevedad.</p>
+        <form name="contacto" onsubmit="handleSubmit(event)">
+          <label>
+            Nombre
+            <input required name="nombre" placeholder="Tu nombre" />
+          </label>
+          <label>
+            Email
+            <input required type="email" name="email" placeholder="tu@email.com" />
+          </label>
+          <label>
+            Mensaje
+            <textarea required name="mensaje" rows="5" placeholder="Cuéntame tu idea"></textarea>
+          </label>
+          <button class="btn" type="submit">Enviar</button>
+          <p id="form-status" class="muted" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+      <div class="card" style="padding:18px">
+        <h3>Información</h3>
+        <ul class="muted" style="list-style:none;padding:0;margin:0">
+          <li>📍 Tu ciudad, País</li>
+          <li>✉️ <a href="#" id="emailLink">contacto@tudominio.com</a></li>
+          <li>📞 +57 300 000 0000</li>
+          <li>⏰ Lun a Vie — 9:00 a 18:00</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>© <span id="y"></span> Mi Marca. Todos los derechos reservados.</span>
+      <a href="#inicio">Volver arriba ↑</a>
+    </footer>
+  </main>
+
+  <script>
+    // Año automático en el footer
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Copiar email al portapapeles
+    const emailLink = document.getElementById('emailLink');
+    emailLink.addEventListener('click', (e)=>{
+      e.preventDefault();
+      navigator.clipboard.writeText(emailLink.textContent.trim());
+      emailLink.textContent = '¡Copiado!';
+      setTimeout(()=> emailLink.textContent = 'contacto@tudominio.com', 1500);
+    });
+
+    // Manejo simple del formulario (sin backend)
+    function handleSubmit(e){
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const status = document.getElementById('form-status');
+      status.textContent = 'Gracias ' + data.nombre + ', tu mensaje fue enviado (demo).';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
